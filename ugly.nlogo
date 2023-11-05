@@ -1,6 +1,5 @@
 to setup
 clear-all
-create-turtles 10
 end
 
 to circle
