@@ -33,6 +33,28 @@ set label "I changed the world"
 end
 
 to confetBecauseICouldntMakeWhatIWanted
+wait 1
+crt 5[
+setxy random-xcor random-ycor
+  let cx xcor
+  let cy ycor
+  let r 1
+  let p2r ( 2 * pi * r )
+  let step p2r / 360
+  set label "I changed the world"
+  hatch 1 [
+    setxy cx + r cy
+    set pen-size 3
+    pd
+    set heading 0
+    while [ p2r > 0 ] [
+      lt 1
+      fd step
+      set p2r p2r - step
+    ]
+    die
+  ]
+]
 wait 5
 crt 1000[
 setxy random-xcor random-ycor
