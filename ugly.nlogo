@@ -31,6 +31,31 @@ setxy 0 0
 set label "I changed the world"
 ]
 end
+
+to confetBecauseICouldntMakeWhatIWanted
+wait 5
+crt 1000[
+setxy random-xcor random-ycor
+  let cx xcor
+  let cy ycor
+  let r 1
+  let p2r ( 2 * pi * r )
+  let step p2r / 360
+  set label "I changed the world"
+  hatch 1 [
+    setxy cx + r cy
+    set pen-size 3
+    pd
+    set heading 0
+    while [ p2r > 0 ] [
+      lt 1
+      fd step
+      set p2r p2r - step
+    ]
+    die
+  ]
+]
+end
 @#$#@#$#@
 GRAPHICS-WINDOW
 405
@@ -337,7 +362,7 @@ BUTTON
 1093
 145
 run
-setup\ncircle\nchangeTheWorld
+setup\ncircle\nchangeTheWorld\nconfetBecauseICouldntMakeWhatIWanted
 NIL
 1
 T
